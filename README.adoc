@@ -6,8 +6,6 @@ An example project that demonstrates how to convert use micrometer-spring-legacy
 
 http://0.0.0.0:8080/[0.0.0.0:8080/xxx]
 
-http://0.0.0.0:8080/[0.0.0.0:8080/yyy]
-
 http://0.0.0.0:8080/prometheus[0.0.0.0:8080/prometheus]
 
 == Key dependencies

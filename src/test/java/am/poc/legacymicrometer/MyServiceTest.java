@@ -38,6 +38,6 @@ public class MyServiceTest {
         String strMvcResultPrometheus= mvcResultPrometheus.getResponse().getContentAsString();
         System.out.println(strMvcResultPrometheus);
 
-        Assertions.assertThat(strMvcResultPrometheus).contains("calculateYyy");
+        Assertions.assertThat(strMvcResultPrometheus).contains("calculateXxx");
     }
 }
