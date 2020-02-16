@@ -1,0 +1,35 @@
+= Legacy Micrometer
+
+An example project that demonstrates how to convert use micrometer-spring-legacy and @RestController Spring boot automatic metrics and Aspect @Timed and @Counted metrics.
+
+== Endpoints
+
+http://0.0.0.0:8080/[0.0.0.0:8080/xxx]
+
+http://0.0.0.0:8080/[0.0.0.0:8080/yyy]
+
+http://0.0.0.0:8080/prometheus[0.0.0.0:8080/prometheus]
+
+== Key dependencies
+
+[source,xml]
+----
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-spring-legacy</artifactId>
+            <version>${micrometer.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+            <version>${micrometer.version}</version>
+        </dependency>
+    </dependencies>
+----
