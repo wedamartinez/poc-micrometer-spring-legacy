@@ -1,12 +1,9 @@
 package am.poc.legacymicrometer;
 
 import io.micrometer.core.annotation.Timed;
-import io.micrometer.core.instrument.MeterRegistry;
-import io.micrometer.spring.autoconfigure.MeterRegistryCustomizer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,17 +19,19 @@ public class Application {
 
     public static void main(String[] args) {
         final ConfigurableApplicationContext run = SpringApplication.run(Application.class, args);
-        run.getBean(MyService.class).calculateXxx();
-    }
-
-    @Bean
-    MeterRegistryCustomizer<MeterRegistry> metricsCommonTags() {
-        return registry -> registry.config().commonTags("application","legacymetrics");
+        run.getBean(MyService.class).calculateXxx(); //only for testing purposes
     }
 
     @GetMapping("/xxx")
-    @Timed(value = "my.rest.controller")
+    @Timed(value = "my.rest.controller") //not necessary spring boot automatically add metrics in your endpoints
     public String callXxx() {
         return service.calculateXxx();
+    }
+
+
+    @GetMapping("/zzz")
+    //Timed and Counted not necessary spring boot automatically add metrics in your endpoints
+    public String callZzz() {
+        return service.calculateZzz();
     }
 }
