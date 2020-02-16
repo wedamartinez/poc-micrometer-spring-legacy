@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyService {
 
-    //"Manual option" injecting MeterRegistry
     private final Counter counter;
 
     public MyService(MeterRegistry registry) {
@@ -17,19 +16,17 @@ public class MyService {
                 .baseUnit("times")
                 .description("A normal counter")
                 .register(registry);
-    }
-
-    //"Aop option" using spring-aspects and TimedAspect in TimedConfiguration.java
-    @Counted
-    @Timed
-    public String calculateXxx() {
         counter.increment();
-        System.out.println("Number of calculations: " + counter.count());
-        return "calculated Xxx! " + counter.count();
     }
 
+    public String calculateZZZ() {
+        counter.increment();
+        return "calculated zzz! " + counter.count();
+    }
+
+    @Timed
     @Counted
-    public String calculateZzz() {
-        return "calculated Zzz!";
+    public void calculateYyy(){
+        System.out.println("calculated Yyy!");
     }
 }
