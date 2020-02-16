@@ -18,4 +18,5 @@ public class MicrometerConfiguration {
     public CountedAspect countedAspect(MeterRegistry registry) {
         return new CountedAspect(registry);
     }
+
 }
