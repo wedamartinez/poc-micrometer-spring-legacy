@@ -6,6 +6,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @SpringBootApplication
 @RestController
 public class Application {
@@ -21,8 +23,7 @@ public class Application {
     }
 
     @GetMapping("/xxx")
-    public String callXxx() {
-        service.calculateYyy();
-        return service.calculateZZZ();
+    public List<String> callXxx() {
+        return service.calculateXxx();
     }
 }
