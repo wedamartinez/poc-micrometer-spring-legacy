@@ -26,4 +26,9 @@ public class Application {
     public List<String> callXxx() {
         return service.calculateXxx();
     }
+
+    @GetMapping("/hello")
+    public String callHello() {
+        return "hello 1";
+    }
 }
